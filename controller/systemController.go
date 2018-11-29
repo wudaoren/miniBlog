@@ -57,6 +57,9 @@ func SystemPublicCheck(c *gin.Context) {
 	sess := UseSession(c)
 	//如果是post方式请求则检查form表单里面的token是否合法，如果合法则删除该token，保证token只使用一次，页就避免了表单重复提交
 	if c.Request.Method == "POST" {
+		if c.Query("img") != "" {
+			return
+		}
 		if token := c.PostForm("Token"); token != "" && sess.Get(token) != nil {
 			sess.Del(token)
 		} else {

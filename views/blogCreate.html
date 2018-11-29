@@ -48,7 +48,7 @@
   	<script type="text/javascript">
         var E = window.wangEditor
         var editor = new E('#editor')
-		editor.customConfig.uploadImgServer = '/system/uploadimage'
+		editor.customConfig.uploadImgServer = '/system/uploadimage?img=123'
 		editor.customConfig.uploadFileName = 'filename'
         editor.customConfig.onchange = function (html) {
             document.getElementById("content").value=html
