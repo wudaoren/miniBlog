@@ -10,6 +10,7 @@
 		|---editor			富文本编辑器
 		|---upload			文件上传目录
 	|---views				html模板
+	|---vendor				依赖包
 	main.go					主程序
 	config.json				配置文件
 	
