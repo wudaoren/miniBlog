@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>{{.Glob.BlogName}}</title>
+<link rel="stylesheet"  type="text/css" href="/static/style.css"></link>
+<style>
+	.list{width:680px;margin:10px 0;float:left;}
+	.list .data li{border-bottom:#EEE 1px dashed;margin-bottom:10px;padding-bottom:10px }
+	.list .data .title{width:100%;line-height:30px;height:30px;position:relative}
+	.list .data .title .t1{width:580px;height:30px;font-size:18px;overflow:hidden; white-space: nowrap;text-overflow: ellipsis}
+	.list .data .title .t2{position:absolute;top:0px;right:0px;clear:both;float:left;height:30px;}
+	.list .data .title i{font-size:14px;margin-left:5px;color:#999}
+	.list .data .content{width:100%;font-size:13px;line-height:24px;margin:5px 0;color:#999;}
+	.list .data .meta{width:100%;color:#999;text-align:right}
+	.list .data .meta a{background:#e8705e;color:#FFF;padding:2px 8px;border-radius:10px;font-size:12px;}
+	.list .data .meta a:hover{background:#ea624e}
+	
+	.list .pageBox{width:100%;height:30px; line-height:30px;position:relative;padding-top:10px}
+	.list .pageBox li{height:30px}
+	.list .pageBox .previous{width:200px;float:left;text-align:left;}
+	.list .pageBox .info{width:200px;left:50%;margin-left:-100px;;position:absolute;text-align:center}
+	.list .pageBox .next{width:200px;float:right;text-align:right;}
+	.list .pageBox  li a{background:#e8705e;color:#FFF;padding:8px 20px;border-radius:30px;font-size:14px;}
+	.list .pageBox  li a:hover{background:#ea624e}
+</style>
+<body>
+	 {{template "head" .}}
+ 	 <div class="main"> 
+		 <!--博客列表页-->
+		 <div class="list">
+			<div class="data"> 
+				{{range $index, $row := .Data.List}}  
+				<li>
+					<div class="title">
+						<div class="t1"><a href="/info/{{$row.Id}}">{{$row.Title}}</a></div>
+						<div class="t2"><i>{{$row.CreateDate}}</i> </div>
+					</div>
+					<p class="content">
+						{{$row.Keyword}}
+					</p> 
+					{{if $.Login}}
+						<div class="meta"> 
+							<a href="/blog/update/{{$row.Id}}">编辑</a>
+							<a href="/blog/delete/{{$row.Id}}" onclick="return confirm('确定删除吗？')">删除</a> 
+						</div>
+					{{end}}
+				</li>
+				{{end}}
+			</div>
+			{{.Data.PageHtml}}
+		</div> 
+	 	{{template "right" .}}
+		{{template "foot" .}}
+	</div> 
+</body>
+</html>

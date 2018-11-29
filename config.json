@@ -1,0 +1,9 @@
+{
+	"Host":":8000",
+	"Mysql":{
+		"Host":"127.0.0.1:3306",
+		"Username":"root",
+		"Password":"",
+		"Database":"miniBlog"
+	}
+}

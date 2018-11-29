@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>系统设置-{{.Glob.BlogName}}</title>
+<link rel="stylesheet"  type="text/css" href="/static/style.css"></link>
+<style>
+	.form{width:100%;}
+</style>
+<body>
+	 {{template "head" .}}
+	<div class="main">
+	<form method="POST" action="/system/set">
+	 <input type="hidden" value="{{.Token}}" name="Token"/>
+ 	 <table class="form">
+		<tr >
+			<td colspan="2">
+				<div class="title">系统设置</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="label">网站名称</td>
+			<td><input class="input" type="text" name="BlogName" value="{{.Glob.BlogName}}"></td>
+		</tr>
+		<tr>
+			<td class="label">网站关键词</td>
+			<td><textarea class="input Keyword" type="text" name="Keyword" >{{.Glob.Keyword}}</textarea></td>
+		</tr> 
+		<tr>
+			<td class="label">登录账号</td>
+			<td><input class="input" type="text" name="Username" value="{{.Glob.Username}}"></td>
+		</tr>
+		<tr>
+			<td class="label">登录密码</td>
+			<td><input class="input" type="password" name="Password" value=""></td>
+		</tr> 
+		<tr>
+			<td class="label">重复密码</td>
+			<td><input class="input" type="password" name="RePassword" value=""></td>
+		</tr> 
+		<tr>
+			<td></td>
+			<td><input class="menu" type="submit" value="保存"></td>
+		</tr> 
+	 </table>
+	</form>
+	 {{template "foot" .}}
+</body>
+</html>

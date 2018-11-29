@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>{{.Data.Title}}-{{.Glob.BlogName}}</title>
+<link rel="stylesheet"  type="text/css" href="/static/style.css"></link>
+<style>
+.info{width:680px;margin:10px 0;float:left;}
+.info .title{width:100%;font-size:30px;line-height:40px;}
+.info .meta{width:100%;font-size:14px;height:20px;line-height:20px;margin-top:20px;}
+.info .meta span{float:left;margin-right:20px;font-size:12px;color:#999}
+.info .meta li{float:right}
+.info .meta a{background:#e8705e;color:#FFF;padding:2px 8px;border-radius:10px;font-size:12px;}
+.info .meta a:hover{background:#ea624e}
+.info .content{width:100%;margin-top:20px;font-size:16px;line-height:24px;}
+
+</style>
+<body>
+	 {{template "head" .}}
+ 	 <div class="main"> 
+ 		<div class="info">
+			<div class="title">
+				<a>{{.Data.Title}}</a> 
+			</div> 
+			<div class="meta">
+				<span>{{.Data.CreateDate}}</span>
+				<span>字数 {{ len .Data.Content}}</span>
+				{{if .Login}}
+					<li>
+						<a href="/blog/update/{{.Data.Id}}">编辑</a>
+						<a href="/blog/delete/{{.Data.Id}}" onclick="return confirm('确定删除吗？')">删除</a>
+					</li>
+				{{end}}
+			</div> 
+			<div class="content">
+				{{.Data.HTMLContent}}
+			</div>
+		</div>
+	 	{{template "right" .}}
+		{{template "foot" .}}
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{{define "right"}}
+<div class="right">
+	<li class="search">
+		<form method="get" action="/">
+			<input class="input" type="text" name="Search"/>
+			<input class="menu" type="submit" value="搜索"/>
+		</form>
+	</li>
+	<li class="box">
+		<div class="tit">友情链接</div>
+		<div class="wxpay" >
+			<img src="/static/image/wxpay.jpg"/>
+		</div>
+	</li>
+	<li class="advert" style="none">
+	 
+	</li>
+</div>
+<style>
+.right{width:260px; float:right;} 
+.right .search{width:258px;background:none;height:28px;border:#CCC 1px solid;border-radius:30px;margin:10px 0 }
+.right .search .input{width:208px;border:0px;height:28px;float:left;outline:none;border-radius:30px 0 0 30px;padding:0 20px}
+.right .search .menu{width:50px;height:30px;background:#e8705e;color:#FFF;float:right;border:0px;border-radius: 0 30px 30px 0;outline:none;margin:-1px}
+
+.right li{background:#FFF;margin-bottom:10px;width:100%;}
+.right .box{min-height:200px;}
+.right .box .tit{height:40px;line-height:40px;font-size:14px;color:#999}
+.right .box .wxpay{width:100%;}
+.right .box .wxpay img{width:100%;}
+</style>
+{{end}}

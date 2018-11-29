@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>{{.Glob.BlogName}}</title>
+<link rel="stylesheet"  type="text/css" href="/static/style.css"></link>
+<style>
+	.msg{width:600px;margin:0 auto;padding:50px 0;height:200px}
+	.msg .face{font-size:60px;font-weight:bold;color:#e8705e;width:200px;;height:60px;line-height:60px;text-align:center;float:left}
+	.msg .info{width:400px;height:40px;margin-top:10px;float:left;}
+	.msg .m1{height:40px;line-height:40px;font-size:20px;}
+	.msg .m2{color:#999}
+</style>
+<body>
+	 {{template "head" .}}
+	 <div class="main">
+		<div class="msg">
+			{{if eq .Data.Status "success"}}
+				<div class="face">^_^</div>
+				<div class="info">
+					<div class="m1">{{.Data.Message}}</div>
+					<div class="m2"><span id="time">3</span>秒后跳转，<a id="menu" href="{{.Data.GotoURL}}">立即跳转</a></div>
+				</div>
+			{{else}}
+				<div class="face">@_@</div>
+				<div class="info">
+					<div class="m1">{{.Data.Message}}</div>
+					<div class="m2"><span id="time">3</span>秒后返回，<a id="menu" href="#" onclick="history.back()">立即返回</a></div>
+				</div>
+			{{end}}
+		</div>
+	 {{template "foot" .}}
+	</div>
+</body>
+<script>
+	var wait=3
+	function $(id){return document.getElementById(id)}
+	setInterval(function(){
+		wait--
+		$("time").innerHTML=wait
+		if(wait<=0){
+			$("menu").click()
+		}
+	},1000)
+</script>
+</html>

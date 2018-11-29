@@ -1,0 +1,19 @@
+body{margin:0px;border:0px;list-style:none;font-family:"Microsoft yahei";font-size:14px;}
+
+a:link{text-decoration:none;color:#333}
+a:visited{text-decoration:none;color:#999}
+a:hover{text-decoration:none;color:none}
+a:active{text-decoration:none;color:none}
+.main{width:1000px;margin:0 auto;}
+
+
+.form {width:900px;margin:0 auto;border-collapse:collapse;}
+.form .label{width:120px;text-align:left;color:#999}
+.form .title{color:#777;font-size:20px;width:100%;text-align:right}
+.form tr:last-child{border:0px;}
+.form tr{ border-bottom:#F0F0F0 1px solid;height:30px; }
+.form td{padding:20px 10px}
+.form .input{border:#DDD 1px solid;width:100%;height:40px;border-radius:10px;padding:0 20px;outline:none;font-size:16px;}
+.form .Keyword{height:80px;line-height:20px;padding:5px 20px}
+.form .menu{padding:0 50px;height:42px;border:0px;border-radius:40px;color:#FFF;background:#e8705e;font-size:16px;border-radius:40px;outline:none;}
+.form .menu:hover{background:#ea624e;cursor:pointer}

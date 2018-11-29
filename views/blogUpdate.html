@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>编辑博客-{{.Glob.BlogName}}</title>
+<link rel="stylesheet"  type="text/css" href="/static/style.css"></link>
+<script type="text/javascript" src="/static/editor/wangEditor.min.js"></script>
+<style>
+ 	
+</style>
+<body>
+	 {{template "head" .}}
+	<div class="main">
+		<form method="POST" action="/blog/update">
+		 <input type="hidden" value="{{.Token}}" name="Token"/>
+		 <input   type="hidden" name="Id" value="{{.Data.Id}}">
+	 	 <table class="form" cellspacing="0" cellpadding="0">
+			<tr >
+				<td colspan="2">
+					<div class="title">编辑博客</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="label" >标题</td>
+				<td><input class="input" type="text" name="Title" value="{{.Data.Title}}"></td>
+			</tr>
+			<tr>
+				<td class="label">简介</td>
+				<td><textarea class="input Keyword" type="text" name="Keyword">{{.Data.Keyword}}</textarea></td>
+			</tr> 
+			<tr>
+				<td class="label">内容</td>
+				<td>
+					<div id="editor" style="width:750px;"></div>
+					<textarea  style="width:750px; height:200px;display:none" id="content" name="Content" >{{.Data.Content}}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="label">发布日期</td>
+				<td><input class="input" type="date" name="CreateDate" value="{{.Data.CreateDate}}"></td>
+			</tr> 
+			<tr >
+				<td class="label"></td>
+				<td><input class="menu" type="submit" value="修改" onclick="return confirm('确定修改吗？')"></td>
+			</tr> 
+		 </table>
+		</form>
+	 	{{template "foot" .}}
+	</div>
+</body>
+  	<script type="text/javascript">
+        var E = window.wangEditor
+        var editor = new E('#editor')
+		editor.customConfig.uploadImgServer = '/system/uploadimage'
+		editor.customConfig.uploadFileName = 'filename'
+        editor.customConfig.onchange = function (html) {
+            document.getElementById("content").value=html
+         }
+        editor.create()
+		editor.txt.html('{{.Data.Content}}')
+    </script>
+</html>
+
+
+ 

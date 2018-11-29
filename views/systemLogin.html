@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>登录-{{.Glob.BlogName}}</title>
+<link rel="stylesheet"  type="text/css" href="/static/style.css"></link>
+<style>
+	.login{width:300px;margin:50px auto;height:220px;}
+	.login li{width:300px;float:left;margin-bottom:20px;float:left;}
+	.login li span{color:#999;font-size:20px;}
+	.login .input{background:#FFF;width:100%;height:40px;border:#EEE 1px solid;border-radius:40px;padding:0 20px;outline:none}
+	.login .menu{width:100%;height:42px;border:0px;border-radius:40px;color:#FFF;background:#e8705e;font-size:16px;border-radius:40px;outline:none;}
+	.login .menu:hover{background:#ea624e;cursor:pointer}
+</style>
+<body>
+	 {{template "head" .}}
+	<div class="main">
+		<form method="POST" action="/login">
+		 <input type="hidden" value="{{.Token}}" name="Token"/>
+	 	 <div class="login">
+			<li><span>登录博客<span></li>
+			<li><input class="input" type="text" name="Username" ></li>
+			<li><input class="input" type="password" name="Password"></li>
+			<li><input class="menu" type="submit" value="登录"></li>
+		 </div>
+		</form>
+	 	{{template "foot" .}}
+	</div>
+</body>
+</html>
