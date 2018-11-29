@@ -24,7 +24,7 @@
 	7、博客信息查看
 	8、退出登录
 # 效果图
-	![https://github.com/wudaoren/miniBlog/blob/master/static/image/995F82E2-1F9A-4C7F-A283-78CB8EBDFD9A.png]()
+	![](https://github.com/wudaoren/miniBlog/blob/master/static/image/995F82E2-1F9A-4C7F-A283-78CB8EBDFD9A.png)
 # 使用方法
 ## 1、配置
 	打开confi.json
