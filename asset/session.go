@@ -7,7 +7,6 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"fmt"
-	"math"
 	"math/rand"
 	"net/url"
 	"sync"
@@ -70,10 +69,10 @@ func (this *SesionEngine) getSession(sessionId string) *MemSession {
 		data = res.(*sessionData)
 	}
 	overTime := this.isTimeout(data)
-	if overTime >= 0 {
+	if overTime > this.maxLifeTime {
 		data.sess = new(MemSession)
 		this.data.Store(sessionId, data)
-	} else if math.Abs(float64(overTime)) < float64(this.maxLifeTime)/2 {
+	} else if overTime > this.maxLifeTime/2 && overTime < this.maxLifeTime {
 		this.data.Store(sessionId, data)
 	}
 	return data.sess
@@ -82,7 +81,7 @@ func (this *SesionEngine) getSession(sessionId string) *MemSession {
 //
 func (this *SesionEngine) isTimeout(data *sessionData) int64 {
 	nowTimestemp := time.Now().Unix()
-	overTime := nowTimestemp - (data.time + this.maxLifeTime) //小于0表示正常，大于0表示超时
+	overTime := nowTimestemp - data.time //小于0表示正常，大于0表示超时
 	data.time = nowTimestemp
 	return overTime
 }

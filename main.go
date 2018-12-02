@@ -131,5 +131,5 @@ func CreateWebServer() {
 		system.GET("/logout", controller.SystemLogoutGet)
 	}
 	//监听服务器端口
-	server.Run(":8000")
+	server.Run(global.Config.Host)
 }
