@@ -16,6 +16,7 @@ var Config struct {
 		Password string
 		Database string
 	}
+	Limit int
 }
 
 //数据库引擎

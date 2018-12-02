@@ -16,6 +16,17 @@ import (
 )
 
 //这是将session数据保存在缓存里的一个简单session包
+/*
+	使用方法
+	func MiddleWare(c *gin.Context){
+		sess:=UserSession(c)//传入gin
+		sess.Get(key)//读取
+		ses.Set(key,value)//保存
+		sess.Del(key)//删除
+		sess.Clear()//清除
+	})
+*/
+
 const (
 	SESSION_NAME = "WUDAOREN"
 )
@@ -78,7 +89,7 @@ func (this *SesionEngine) getSession(sessionId string) *MemSession {
 	return data.sess
 }
 
-//
+//是否超时
 func (this *SesionEngine) isTimeout(data *sessionData) int64 {
 	nowTimestemp := time.Now().Unix()
 	overTime := nowTimestemp - data.time //小于0表示正常，大于0表示超时
@@ -96,6 +107,7 @@ func (this *SesionEngine) gc() {
 	})
 }
 
+//session对象
 type MemSession struct {
 	sync.Map
 }

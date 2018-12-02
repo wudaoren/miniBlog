@@ -71,6 +71,7 @@ func ReadConfig() {
 	asset.CheckFatalError("配置文件格式错误：", e)
 }
 
+//增加注释
 //创建数据库,如果数据库不存在则创建数据库
 func CreateDatabase() {
 	var conf = global.Config.Mysql
