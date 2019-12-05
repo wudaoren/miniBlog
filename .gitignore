@@ -1,3 +1,4 @@
 /miniBlog
 *.exe
-
+miniBlog.*
+*.zip
