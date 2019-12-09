@@ -15,7 +15,7 @@ import (
 	"miniBlog/model"
 
 	"github.com/gin-gonic/gin"
-	"github.com/go-xorm/xorm"
+	"xorm.io/xorm"
 )
 
 //致命错误检查，title=如果错误输出的标题，e=要检查的错误输出

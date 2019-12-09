@@ -6,20 +6,23 @@ package main
 import (
 	"os"
 	"time"
+
 	//标准库
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+
 	//myblog包
 	"miniBlog/asset"
 	"miniBlog/controller"
 	"miniBlog/global"
 	"miniBlog/model"
+
 	//三方包
 	"github.com/gin-gonic/gin"         //导入gin框架
 	_ "github.com/go-sql-driver/mysql" //使用xorm必须要先导入mysql驱动
-	"github.com/go-xorm/core"          //导入xorm框架
-	"github.com/go-xorm/xorm"          //导入xorm框架
+	"xorm.io/core"                     //导入xorm框架
+	"xorm.io/xorm"                     //导入xorm框架
 )
 
 //这里是整个程序的入口

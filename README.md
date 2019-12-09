@@ -24,7 +24,8 @@
 	7、博客信息查看
 	8、退出登录
 # 演示站
-	[http://blog.fourwell.net/](http://blog.fourwell.net/)
+- [http://blog.fourwell.net](http://blog.fourwell.net)
+
 # 使用方法
 ## 1、配置
 	打开confi.json

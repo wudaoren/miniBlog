@@ -4,7 +4,7 @@
 package global
 
 import (
-	"github.com/go-xorm/xorm"
+	"xorm.io/xorm"
 )
 
 //配置参数
