@@ -1,8 +1,7 @@
 # 说明：
-	miniBlog是一个非常简易、没有经过精心设计的博客系统，三方包只使用了gin和xorm，适合初学go web编程的爱好者理解go web开发的过程，
-	欢迎大家多提意见和建议。
+	miniBlog只是一个demo，用于初学者理解go web开发的过程，三方包只使用了gin和xorm，欢迎大家多提建议。
 # 目录结构
-	|---aseet				常用工具
+	|---asset				常用函数
 	|---controller			控制器目录
 	|---global				存放全局变量
 	|---model				存放数据模型
